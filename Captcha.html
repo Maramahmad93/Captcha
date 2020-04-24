@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">	
+	<title>Captcha and return password </title>
+	<style type="text/css">
+		#div1{
+			width: 300px;
+			height: 200px;
+			border:5px solid #000;
+			background-color: #33ccff;
+			margin:200px;
+			padding:50px;
+		}
+		#captchaPasswd{
+			display: block;
+			width: 200px;
+			height: 50px;
+			margin-bottom: 20px;
+			background-color: red;
+			text-align: center;
+			padding:10px;
+
+		}
+		input{
+			display: inline;
+			width: 200px;
+			height: 50px;
+			margin-bottom: 20px;
+		}
+/*	i{
+			font-size: 30px;
+        color: black;
+      padding-top: 6px;
+     position: relative;
+      left: 166px;
+      bottom: 76px;
+      	visibility: hidden;
+}*/
+	
+
+	</style>
+</head>
+
+
+<body >
+	
+	<div id="div1">
+		<div  id="captchaPasswd">
+	
+		</div>
+
+
+			<!-- 	<i class="fas fa-sync-alt"   ></i> -->
+
+
+
+		<input type = "text" id="txtEntered" placeholder="Please Enter The Pattern" onkeyup="pressKey(event)" >
+	</div>
+
+
+	<script type="text/javascript">
+
+		generatePass();
+
+
+		function generatePass(){
+			var num = [ ],
+			password = [];
+			for(var i = 0 ; i<3 ; i++){
+				var z = Math.floor(Math.random() * 26) + 65,
+				x = String.fromCharCode(z),
+				m =  password.push(x),
+				num2 = Math.floor(Math.random()*10), 
+  	    num3 =  num.push(num2);   //join for array not for anything else as num3
+  	    console.log(num.join());
+  	    document.getElementById("captchaPasswd").innerHTML = password.join('') + num.join('');
+
+  	}
+  }
+
+  function pressKey(event){
+  var text_Generated = div1.children[0].textContent ; 
+     console.log( div1.children[0].textContent);
+  	var key_Press = event.key;
+  	var password_Entered ;
+  	password_Entered = document.getElementById("txtEntered").value;
+
+  	var password_Generated ;
+  	password_Generated = document.getElementById("captchaPasswd") ; 
+  	console.log(password_Generated);
+  	 	console.log(password_Entered );
+  	if(password_Entered.length == 6  ) {
+  		document.getElementById("txtEntered").disabled = true;
+  		if( password_Entered == text_Generated ){
+  			
+     /*   location.replace("https://www.google.com/");*/
+         window.open( "https://www.google.com/");
+
+
+  		}
+  	/*	else{
+  	       
+       document.getElementById("refresh").style.visibility = "visible";
+         
+
+  		}
+*/  	
+  }
+}
+  
+
+
+
+
+  /*  var password_Generated = [];
+    password_Generated   = document.getElementById("captchaPasswd").value; 
+    console.log( " PASSWORD GENERATED "+password_Generated);
+
+ function pressKey(event){ 
+
+ var key_Press = event.charCode;
+  console.log("The Character code is "+key_Press);
+  var key_Code = event.keyCode;
+  console.log("THE KEY COD IS " + key_Code);
+  var key_Pressed = String.fromCharCode(event.keyCode);
+
+
+
+  console.log("THE letter IS " + key_Pressed);
+  
+  var password_Entered = [];
+   password_Entered =  document.getElementById("txtEntered").value;
+   console.log("password enetred    " +password_Entered);
+     console.log( " PASSWORD GENERATED "+ password_Generated);
+
+    
+
+if(password_Entered.length == 6  ) {
+	 	  document.getElementById("txtEntered").disabled = true;
+  
+  if(password_Entered == password_Generated){
+  	document.write("hello");
+  }
+
+
+
+}
+ 
+
+  console.log("password enetred    " +password_Entered);
+ }*/
+
+
+   
+ 
+   
+
+
+      
+		
+
+
+
+
+
+	</script>
+
+</body>
+</html>
